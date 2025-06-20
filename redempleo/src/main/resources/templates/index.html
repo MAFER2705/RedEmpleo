@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Red Empleo - Usuarios</title>
+</head>
+<body>
+<h1>Lista de Usuarios</h1>
+<table border="1">
+  <tr>
+    <th>Nombre</th>
+    <th>Correo</th>
+  </tr>
+  <tr th:each="usuario : ${usuarios}">
+    <td th:text="${usuario.nombre}">Nombre</td>
+    <td th:text="${usuario.correo}">Correo</td>
+  </tr>
+</table>
+
+<h2>Agregar Nuevo Usuario</h2>
+<form th:action="@{/usuarios}" method="post">
+  <label for="nombre">Nombre:</label>
+  <input type="text" name="nombre" required><br><br>
+
+  <label for="correo">Correo:</label>
+  <input type="email" name="correo" required><br><br>
+
+  <button type="submit">Guardar</button>
+</form>
+</body>
+</html>
